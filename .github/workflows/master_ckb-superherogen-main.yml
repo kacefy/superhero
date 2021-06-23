@@ -60,7 +60,8 @@ jobs:
           run: dotnet build "${{ env.SECONDNAMES_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
         - name: Publish
           run: dotnet publish "${{ env.SECONDNAMES_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --output "${{ env.SECONDNAMES_PACKAGE_PATH }}"
-  
+        - name: publish secondnames service to Azure
+          run: az
       
     
               az webapp up -n ckb-superherogen-secondnames --os-type Linux --resource-group ckb-superherogen-rg --runtime "DOTNET|5.0"
@@ -78,7 +79,7 @@ jobs:
         run: dotnet restore "${{ env.MERGE_DIRECTORY }}"
       - name: Build
         run: dotnet build "${{ env.MERGE_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
-      - name: publish numbers service to Azure
+      - name: publish merge service to Azure
         run: az
     
       
@@ -96,7 +97,7 @@ jobs:
         run: dotnet restore "${{ env.FE_DIRECTORY }}"
       - name: Build
         run: dotnet build "${{ env.FE_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
-      - name: publish numbers service to Azure
+      - name: publish frontend service to Azure
         run: az
     
   
