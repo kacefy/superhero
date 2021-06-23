@@ -36,9 +36,9 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
       - name: Restore
-        run: dotnet restore "${{ env.FIRSTNAMES_DIRECTORY }}"
+        run: dotnet restore "${{ env.FIRSTNAMES_CSPROJ }}"
       - name: Build
-        run: dotnet build "${{ env.FIRSTNAMES_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
+        run: dotnet build "${{ env.FIRSTNAMES_CSPROJ }}" --configuration ${{ env.CONFIGURATION }}
       - name: publish firstnames service to Azure
         run: az
       - name: Azure Login
