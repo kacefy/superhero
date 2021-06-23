@@ -33,11 +33,12 @@ resource "azurerm_resource_group" "rg" {
 # create service plan
 resource "azurerm_app_service_plan" "sp" {
     name = "${local.prefix}-${var.project_name}-app-svc"
-    kind = "Windows"
+    kind = "Linux"
     sku{
         tier = "Basic"
         size = "B1"
     }
+    reserved = true
     resource_group_name = azurerm_resource_group.rg.name
     location = azurerm_resource_group.rg.location
 }
