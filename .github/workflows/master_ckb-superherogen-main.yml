@@ -41,10 +41,6 @@ jobs:
         run: dotnet build "${{ env.FIRSTNAMES_CSPROJ }}" --configuration ${{ env.CONFIGURATION }}
       - name: publish firstnames service to Azure
         run: az
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
     
       - name: Azure CLI script
         uses: azure/CLI@v1
@@ -69,13 +65,7 @@ jobs:
           run: dotnet build "${{ env.SECONDNAMES_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
         - name: Publish
           run: dotnet publish "${{ env.SECONDNAMES_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --output "${{ env.SECONDNAMES_PACKAGE_PATH }}"
-    
-        - name: publish numbers service to Azure
-          run: az
-        - name: Azure Login
-          uses: azure/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
       
         - name: Azure CLI script
           uses: azure/CLI@v1
@@ -100,10 +90,6 @@ jobs:
         run: dotnet build "${{ env.MERGE_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
       - name: publish numbers service to Azure
         run: az
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
     
       - name: Azure CLI script
         uses: azure/CLI@v1
@@ -127,10 +113,6 @@ jobs:
         run: dotnet build "${{ env.FE_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }}
       - name: publish numbers service to Azure
         run: az
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
     
       - name: Azure CLI script
         uses: azure/CLI@v1
