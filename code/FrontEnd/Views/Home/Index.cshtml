@@ -1,8 +1,86 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Welcome to Superhero Name Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <!-- Header -->
+        <div id="header">
+
+        </div>
+
+        <!-- Main -->
+        <div class="wrapper style2">
+
+            <article id="main" class="container special">
+                <a href="#" class="image featured"><img src="https://media.istockphoto.com/vectors/vector-superhero-silhouette-with-sunburst-effect-background-vector-id1162040662?k=6&m=1162040662&s=612x612&w=0&h=stfa6A3n_qxpQV5UMzOBOQKebtP0GLyY4VdH6xOeM8I=" alt="Superherooooo" /></a>
+
+                <header>
+                    <h2><a href="#">Welcome to Superhero/Supervillain Name Generator</a></h2>
+                    <p>
+                        Who would you like to be?
+                    </p>
+                </header>
+
+                <header>
+                    <h3 style="display:none" id="namedisplay">@ViewBag.responseCall</h3>
+
+                </header>
+
+                <footer>
+                    <button type="button" onclick="gethero()">I want to be a Superhero</button>
+                    <button type="button" onclick="getVillan()">I want to be a Supervillain</button>
+
+
+                </footer>
+            </article>
+
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script>
+        function getVillan() {
+
+            window.location.reload();
+
+            var element = document.getElementById("namedisplay").innerHTML;
+
+            var villainName = element.split(",");
+
+            alert(villainName[1])
+
+        }
+
+        function gethero() {
+
+            window.location.reload();
+
+            var element = document.getElementById("namedisplay").innerHTML;
+
+            var heroName = element.split(",");
+
+            alert(heroName[0])
+
+        }
+    </script>
+
+</body>
+</html>

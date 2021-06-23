@@ -11,8 +11,12 @@ namespace FirstNames.Controllers
     [Route("[controller]")]
     public class FirstNamesController : ControllerBase
     {
-        public static readonly string[] FirstName = new[] {
-            "Mister", "Miss", "Mighty", "The", "Super", "Incredible", "Thunder", "Lightning", "Ice", "Great", "Victorious", "Valiant", "Hyper", "Amazing"
+        public static readonly string[] HeroFirstName = new[] {
+            "Mister", "Wonder", "Mighty", "The", "Super", "Incredible", "Thunder", "Lightning", "Ice", "Great", "Victorious", "Valiant", "Hyper", "Invincible"
+       };
+
+        public static readonly string[] VillainFirstName = new[] {
+            "Mister", "Miss", "Notorious", "The", "Evil", "Mischievious", "Killer", "Dark", "Ice", "Mysterious", "Death", "Storm", "Red", "Destructive"
        };
 
 
@@ -21,8 +25,10 @@ namespace FirstNames.Controllers
         public ActionResult<string> Get()
         {
             var rnd = new Random();
-            var returnindex = rnd.Next(0, 25);
-            return FirstName[returnindex].ToString();
+            var returnindex = rnd.Next(0, 13);
+
+            var result = $"{HeroFirstName[returnindex].ToString() + " " + VillainFirstName[returnindex].ToString()}";
+            return result;
 
         }
     }

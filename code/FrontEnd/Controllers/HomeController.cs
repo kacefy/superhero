@@ -7,15 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FrontEnd.Models;
 using System.Net.Http;
+using Microsoft.Extensions.Configuration;
+
 namespace FrontEnd.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
+        private IConfiguration Configuration;
 
+        public HomeController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var mergedService = "https://localhost:44305/merge";
+  
+            var mergedService = $"{Configuration["mergedServiceURL"]}/superheromerge";
             var thirdServiceResponseCall = await new HttpClient().GetStringAsync(mergedService);
             ViewBag.responseCall = thirdServiceResponseCall;
             return View();

@@ -12,20 +12,27 @@ namespace SecondNames.Controllers
     public class SecondNamesController : ControllerBase
     {
 
-        public static readonly string[] SecondName = new[] {
-            "Gambit", "Man", "Woman", "Torpedo", "Flash", "Mastermind", "Girl", "Boy", "Freeze", "Hurricane", "Blaze", "Steel", "Sandstorm", "Mage"
+        public static readonly string[] HeroSecondName = new[] {
+            "Phoenix", "Man", "Woman", "Torpedo", "Flash", "Mastermind", "Girl", "Boy", "Freeze", "Hurricane", "Blaze", "Steel", "Sandstorm", "Mage"
        };
 
+        public static readonly string[] VillainSecondName = new[] {
+            "Gambit", "Man", "Woman", "Wizard", "Mage", "Nightmare", "Queen", "King", "Freeze", "Hurricane", "Widow", "Criminal", "Serpent", "Witch"
+       };
 
         [HttpGet]
 
         public ActionResult<string> Get()
         {
             var rnd = new Random();
-            var returnindex = rnd.Next(0, 25);
-            return SecondName[returnindex].ToString();
+            var returnindex = rnd.Next(0, 13);
 
+            var result = $"{HeroSecondName[returnindex].ToString() + " " + VillainSecondName[returnindex].ToString()}";
+            return result;
         }
+
+
+
     }
 }
 
