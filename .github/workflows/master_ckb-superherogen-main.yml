@@ -16,6 +16,8 @@ env:
   SECONDNAMES_DIRECTORY: ./code/secondnames
   MERGE_DIRECTORY: ./code/merge
   
+  FIRSTNAMES_CSPROJ: ./code/firstnames/firstnames.csproj
+  
   FE_PACKAGE_PATH: ./code/frontend/publish
   NUMBERS_PACKAGE_PATH: ./code/firstnames/publish
   LETTERS_PACKAGE_PATH: ./code/secondnames/publish
