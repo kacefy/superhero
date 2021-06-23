@@ -42,12 +42,7 @@ jobs:
       - name: publish firstnames service to Azure
         run: az
     
-      - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.25.0
-          inlineScript: |
-            cd "${{ env.FIRSTNAMES_DIRECTORY }}"
+      
             az webapp up -n ckb-superherogen-firstnames --os-type Linux --resource-group ckb-superherogen-rg
   build-secondnames-service:
       runs-on: ubuntu-latest
@@ -67,12 +62,7 @@ jobs:
           run: dotnet publish "${{ env.SECONDNAMES_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --output "${{ env.SECONDNAMES_PACKAGE_PATH }}"
   
       
-        - name: Azure CLI script
-          uses: azure/CLI@v1
-          with:
-            azcliversion: 2.25.0
-            inlineScript: |
-              cd "${{ env.SECONDNAMES_PACKAGE_PATH }}"
+    
               az webapp up -n ckb-superherogen-secondnames --os-type Linux --resource-group ckb-superherogen-rg --runtime "DOTNET|5.0"
   build-merge-service:
     runs-on: ubuntu-latest
@@ -91,12 +81,7 @@ jobs:
       - name: publish numbers service to Azure
         run: az
     
-      - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.25.0
-          inlineScript: |
-            cd "${{ env.MERGE_DIRECTORY }}"
+      
             az webapp up -n ckb-superherogen-merge --os-type Linux --resource-group ckb-superherogen-rg
             az webapp config appsettings set -g ckb-superherogen-rg -n ckb-superherogen-merge --settings "@../../.github/workflows/mergeSettings.json"
   build-frontend-service:
@@ -114,11 +99,6 @@ jobs:
       - name: publish numbers service to Azure
         run: az
     
-      - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.25.0
-          inlineScript: |
-            cd "${{ env.FE_DIRECTORY }}"
+  
             az webapp up -n ckb-superherogen-frontend --os-type Linux --resource-group ckb-superherogen-rg
             az webapp config appsettings set -g ckb-superherogen-merge -n ckb-superherogen-rg --settings "@../../.github/workflows/frontendSettings.json"
