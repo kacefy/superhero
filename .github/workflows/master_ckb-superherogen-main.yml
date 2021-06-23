@@ -11,12 +11,10 @@ on:
 env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 5.0.x
-  FE_DIRECTORY: ./code/frontend
+  FE_DIRECTORY: ./code/FrontEnd
   FIRSTNAMES_DIRECTORY: ./code/FirstNames
-  SECONDNAMES_DIRECTORY: ./code/secondnames
-  MERGE_DIRECTORY: ./code/merge
-  
-  FIRSTNAMES_CSPROJ: ./code/FirstNames/firstnames.csproj
+  SECONDNAMES_DIRECTORY: ./code/SecondNames
+  MERGE_DIRECTORY: ./code/Merge
   
   FE_PACKAGE_PATH: ./code/frontend/publish
   NUMBERS_PACKAGE_PATH: ./code/firstnames/publish
@@ -36,7 +34,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
       - name: Restore
-        run: dotnet restore "${{ env.FIRSTNAMES_CSPROJ }}"
+        run: dotnet restore "${{ env.FIRSTNAMES_DIRECTORY }}"
       - name: Build
         run: dotnet build "${{ env.FIRSTNAMES_CSPROJ }}" --configuration ${{ env.CONFIGURATION }}
       - name: publish firstnames service to Azure
