@@ -27,6 +27,7 @@ namespace Merge
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.Configure<AppSettings>(options => Configuration.GetSection("AppSettings").Bind(options));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
