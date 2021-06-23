@@ -16,6 +16,8 @@ env:
   SECONDNAMES_DIRECTORY: ./code/SecondNames
   MERGE_DIRECTORY: ./code/Merge
   
+  FIRSTNAMES_CSPROJ: ./code/FirstNames/FirstNames.csproj
+  
   FE_PACKAGE_PATH: ./code/frontend/publish
   NUMBERS_PACKAGE_PATH: ./code/firstnames/publish
   LETTERS_PACKAGE_PATH: ./code/secondnames/publish
@@ -34,7 +36,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
       - name: Restore
-        run: dotnet restore "${{ env.FIRSTNAMES_DIRECTORY }}"
+        run: dotnet restore "${{ env.FIRSTNAMES_CSPROJ }}"
       - name: Build
         run: dotnet build "${{ env.FIRSTNAMES_CSPROJ }}" --configuration ${{ env.CONFIGURATION }}
       - name: publish firstnames service to Azure
