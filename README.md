@@ -1,7 +1,7 @@
-# superhero
+# SUPERHERO
 Super Hero Name Generator
 
-# Brief
+# Project Brief
 To create a service-oriented application composed of at least 4 services that interact with each other.
 
 More specifically, this will involve:
