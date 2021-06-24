@@ -29,14 +29,13 @@ namespace Merge.Controllers
             var FirstNamesService = $"{Configuration["firstnamesServiceURL"]}/firstnames";
             var firstnamesResponseCall = await new HttpClient().GetStringAsync(FirstNamesService);
 
-
             var SecondNamesService = $"{Configuration["secondnamesServiceURL"]}/secondnames";
             var secondnamesResponseCall = await new HttpClient().GetStringAsync(SecondNamesService);
 
             var herofirstandlastname = firstnamesResponseCall.Split(" ")[0] + " " + secondnamesResponseCall.Split(" ")[0];
-            var villanfirstandlastname = firstnamesResponseCall.Split(" ")[1] + " " + secondnamesResponseCall.Split(" ")[1];
+            var villainfirstandlastname = firstnamesResponseCall.Split(" ")[1] + " " + secondnamesResponseCall.Split(" ")[1];
 
-            var mergedResponse = $"{herofirstandlastname}{","}{villanfirstandlastname}";
+            var mergedResponse = $"{herofirstandlastname}{","}{villainfirstandlastname}";
             return Ok(mergedResponse);
 
         }
