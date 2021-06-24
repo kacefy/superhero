@@ -121,13 +121,17 @@ Here is the link to the risk assessment: shorturl.at/aDLV1
 
 - CI/CD Pipeline through GitHub Actions fails at publishing stage; I ran into a lot of issues with publishing the services on VS and was not able to fix the issues with AZ logins within the time constraints.
 
-# Future improvements
+# Future improvements on the application
 Outside of current errors and upon completion of the original plan for the app, I would like to:
 - Integrate a MySQL Database to increase the number of names available.
 - Additional HTML/CSS to make the app more visually engaging. 
 
-# Reflections
-- What I learned from project
+# Reflections on the project
+- My highlights were: using Terraform and writing the C# code for my webapp. 
+- I found deployment to be difficult and confusing at times; I need to do some extra work in order to become more comfortable with it.
+- I received a greater insight into software development, particularly in project and time management with regards to giving myself excess time in case of issues/bugs. I did not allow enough time for these hitches, taking into account my skill level. If I had been more generous with my timings on the project management side, I would have been able to cover testing and would have had time to fix deployment issues.
+- I would like to attempt deployment on Azure Devops instead of GitHub actions. 
+
 
 # Authors
 Ciarra Balsomo
